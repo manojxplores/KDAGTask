@@ -3,7 +3,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 
 
-data = pd.read_csv('C:\\Users\\manoj\\OneDrive\\Desktop\\KDAG TASK\\KDAGTaskFinal\\ds1_train.csv')
+data = pd.read_csv('DATAset/ds2_train.csv')
 # --->Loading the training data
 
 # Separate features (X) and target variable (Y) from the training data
@@ -26,7 +26,7 @@ logistic_model = GridSearchCV(logistic_model, parameters, cv=3, verbose=True)
 logistic_model.fit(X, Y)
 
 # Load the test data
-data_test = pd.read_csv('C:\\Users\\manoj\\OneDrive\\Desktop\\KDAG TASK\\KDAGTaskFinal\\ds1_test.csv')
+data_test = pd.read_csv('DATAset/ds2_test.csv')
 
 X_test = data_test[['x_1', 'x_2']]
 Y_test = data_test['y']
