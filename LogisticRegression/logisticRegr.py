@@ -5,12 +5,12 @@ import seaborn as sns
 from sklearn.metrics import accuracy_score
 from sqlalchemy import create_engine
 
-#load the data using pandas
+#loading the data using pandas
 data = pd.read_csv("DATAset/ds2_train.csv")
 x_train = data[['x_1', 'x_2']].values
 y_train = data['y'].values
 
-# Define the sigmoid function for activation
+#Define the activation function which is sigmoid in our case
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 
@@ -50,7 +50,7 @@ def gradient(x, y, w, b, lambda_reg):
 
     return dw, db
 
-# Define the gradient descent function for parameter updates with L2 regularization
+# Updating the parameters using gradient-descent algorithm
 def gradient_descent(x, y, w, b, alpha, num_iter, lambda_reg):
     costs = []  # List to store the loss at each iteration
 
@@ -65,7 +65,7 @@ def gradient_descent(x, y, w, b, alpha, num_iter, lambda_reg):
         costs.append(cost)
 
         # Print the loss after each iteration
-        print(f"Iteration {i+1} - Loss: {cost}")
+        print(f"Iteration {i+1}/{num_iter} - Loss: {cost}")
 
     return w, b, costs
 
@@ -74,11 +74,13 @@ w_init = np.zeros(x_train.shape[1])
 b_init = 0
 
 # Set hyperparameters for training
-num_iterations = 10000  # Number of iterations
+num_iterations = 5000  # Number of iterations
 alpha = 0.01
 lambda_reg = 0.1  # L2 regularization strength
 
-w_train, b_train = gradient_descent(x_train, y_train, w_init, b_init, alpha, num_iterations, lambda_reg)
+# Call the gradient_descent function and get the updated weights, bias, and loss
+w_train, b_train, loss_history = gradient_descent(x_train, y_train, w_init, b_init, alpha, num_iterations, lambda_reg)
+
 
 # Define the predict function to make predictions on new data
 def predict(x, w, b):
