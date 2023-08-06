@@ -85,7 +85,7 @@ def predict(x, w, b):
     return y_est
 
 # Load the testing dataset
-df_test = pd.read_csv('C:\\Users\\manoj\\OneDrive\\Desktop\\KDAG TASK\\KDAGTaskFinal\\ds2_test.csv')
+df_test = pd.read_csv('DATAset/ds1_test.csv')
 
 # Extract features (x_test) and target variable (y_test) from the test data
 x_test = df_test[['x_1', 'x_2']].values
