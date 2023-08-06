@@ -15,7 +15,7 @@ def sigmoid_derivative(x):
     return x * (1 - x)
 
 # Loading  the training data using pandas dataframe
-df = pd.read_csv('DATAset/ds1_train.csv')
+df = pd.read_csv('DATAset/ds2_train.csv')
 
 X = df[['x_1', 'x_2']].values
 y = df['y'].values
@@ -78,7 +78,7 @@ accuracy = accuracy_score(y_pred, y)
 print("Final accuracy on training data:", accuracy)
 
 # Loading the testing dataset
-df_test = pd.read_csv('DATAset/ds1_test.csv')
+df_test = pd.read_csv('DATAset/ds2_test.csv')
 
 
 X_test = df_test[['x_1', 'x_2']].values
