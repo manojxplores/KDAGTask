@@ -52,13 +52,22 @@ def gradient(x, y, w, b, lambda_reg):
 
 # Define the gradient descent function for parameter updates with L2 regularization
 def gradient_descent(x, y, w, b, alpha, num_iter, lambda_reg):
+    costs = []  # List to store the loss at each iteration
+
     for i in range(num_iter):
         dw, db = gradient(x, y, w, b, lambda_reg)
 
         w = w - alpha * dw
         b = b - alpha * db
 
-    return w, b
+        # Compute the loss and store it in the 'costs' list
+        cost = compute_cost(x, y, w, b, lambda_reg)
+        costs.append(cost)
+
+        # Print the loss after each iteration
+        print(f"Iteration {i+1} - Loss: {cost}")
+
+    return w, b, costs
 
 # Initialize the weights and bias for training
 w_init = np.zeros(x_train.shape[1])
