@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 from sqlalchemy import create_engine
 
 #load the data using pandas
-data = pd.read_csv("DATAset/ds1_train.csv")
+data = pd.read_csv("DATAset/ds2_train.csv")
 x_train = data[['x_1', 'x_2']].values
 y_train = data['y'].values
 
@@ -85,7 +85,7 @@ def predict(x, w, b):
     return y_est
 
 # Load the testing dataset
-df_test = pd.read_csv('DATAset/ds1_test.csv')
+df_test = pd.read_csv('DATAset/ds2_test.csv')
 
 # Extract features (x_test) and target variable (y_test) from the test data
 x_test = df_test[['x_1', 'x_2']].values
