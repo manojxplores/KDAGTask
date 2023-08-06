@@ -5,11 +5,8 @@ import seaborn as sns
 from sklearn.metrics import accuracy_score
 from sqlalchemy import create_engine
 
-url = "https://drive.google.com/drive/folders/1uTIVgqxMDpbuY935zBHE2eRyuxwAXNOO"
-url='https://drive.google.com/uc?id=' + url.split('/')[-2]
-
-data = pd.read_csv(url)
-
+#load the data using pandas
+data = pd.read_csv("DATAset/ds1_train.csv")
 x_train = data[['x_1', 'x_2']].values
 y_train = data['y'].values
 
