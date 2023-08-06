@@ -4,7 +4,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import GridSearchCV
 
 # Load the training data
-data = pd.read_csv('C:\\Users\\manoj\\OneDrive\\Desktop\\KDAG TASK\\KDAGTaskFinal\\ds1_train.csv')
+data = pd.read_csv('DATAset/ds1_train.csv')
 X = data[['x_1', 'x_2']]
 Y = data['y']
 
@@ -23,7 +23,7 @@ model_neural_network = GridSearchCV(model_neural_network, parameters, cv=5, scor
 model_neural_network.fit(X, Y)
 
 # Load the test data
-data_test = pd.read_csv('C:\\Users\\manoj\\OneDrive\\Desktop\\KDAG TASK\\KDAGTaskFinal\\ds1_test.csv')
+data_test = pd.read_csv('DATAset/ds1_test.csv')
 X_test = data_test[['x_1', 'x_2']]
 Y_test = data_test['y']
 
